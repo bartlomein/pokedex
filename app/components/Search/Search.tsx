@@ -1,9 +1,21 @@
 import { useFetch } from "@/app/hooks/useFetch";
+import Link from "next/link";
 import { useEffect, useState } from "react";
+
+import {
+  historySlice,
+  selectHistory,
+  useDispatch,
+  useSelector,
+} from "@/lib/redux";
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [filteredData, setFilteredData] = useState([]);
+
+  const dispatch = useDispatch();
+  const history = useSelector(selectHistory);
+  console.log("history", history);
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
@@ -37,11 +49,24 @@ const Search = () => {
         onChange={handleSearchChange}
         placeholder="Search..."
       />
+      {/* TODO make this a dropdown with pokeitems */}
       <ul>
         {searchTerm &&
           filteredData?.map((item, index) => {
             if (index < 5) {
-              return <li key={item.name}>{item.name}</li>;
+              return (
+                <p>
+                  <Link
+                    key={item.name}
+                    href={`/pokemon/${item.name}`}
+                    onClick={() =>
+                      dispatch(historySlice.actions.add(item.name))
+                    }
+                  >
+                    {item.name}
+                  </Link>
+                </p>
+              );
             }
           })}
       </ul>
