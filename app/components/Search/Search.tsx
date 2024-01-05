@@ -3,20 +3,13 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import styles from "./Search.module.scss";
 
-import {
-  historySlice,
-  selectHistory,
-  useDispatch,
-  useSelector,
-} from "@/lib/redux";
+import { historySlice, useDispatch } from "@/lib/redux";
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [filteredData, setFilteredData] = useState([]);
 
   const dispatch = useDispatch();
-  const history = useSelector(selectHistory);
-  console.log("history", history);
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);

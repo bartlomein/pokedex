@@ -1,10 +1,9 @@
 /* Components */
-import { Counter } from './components/Counter/Counter'
 
 export default function IndexPage() {
-  return <Counter />
+  return <div>Please select a pokemon in the search bar</div>;
 }
 
 export const metadata = {
-  title: 'Redux Toolkit',
-}
+  title: "Redux Toolkit",
+};
