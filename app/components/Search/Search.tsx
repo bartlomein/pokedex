@@ -1,6 +1,7 @@
 import { useFetch } from "@/app/hooks/useFetch";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import styles from "./Search.module.scss";
 
 import {
   historySlice,
@@ -42,7 +43,7 @@ const Search = () => {
   }, [searchTerm]);
 
   return (
-    <div>
+    <div className={styles.search}>
       <input
         type="text"
         value={searchTerm}
@@ -50,12 +51,12 @@ const Search = () => {
         placeholder="Search..."
       />
       {/* TODO make this a dropdown with pokeitems */}
-      <ul>
+      <ul className={styles.dropdownList}>
         {searchTerm &&
           filteredData?.map((item, index) => {
             if (index < 5) {
               return (
-                <p>
+                <li className={styles.listItem}>
                   <Link
                     key={item.name}
                     href={`/pokemon/${item.name}`}
@@ -65,7 +66,7 @@ const Search = () => {
                   >
                     {item.name}
                   </Link>
-                </p>
+                </li>
               );
             }
           })}
