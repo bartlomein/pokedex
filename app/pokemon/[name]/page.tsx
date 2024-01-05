@@ -1,6 +1,7 @@
 "use client";
 
 import Abilities from "@/app/components/Abilities/Abilities";
+
 import Moves from "@/app/components/Moves/Moves";
 import Species from "@/app/components/Species/Species";
 import Sprites from "@/app/components/Sprites/Sprites";
@@ -13,7 +14,7 @@ export default function Name({ params }: any) {
     `https://pokeapi.co/api/v2/pokemon/${params.name}`
   );
 
-  console.log(data);
+  console.log("data", data);
 
   return (
     <>
@@ -27,6 +28,7 @@ export default function Name({ params }: any) {
           <Species species={data?.species} />
           <Types types={data?.types} />
           <Sprites sprites={data?.sprites} />
+          <EvolutionChain id={data?.id} />
         </div>
       ) : (
         <div>no data</div>
