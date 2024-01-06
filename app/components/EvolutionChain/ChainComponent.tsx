@@ -1,22 +1,43 @@
+import Link from "next/link";
 import styles from "./EvolutionChain.module.scss";
+import { Chain, ChainItemT } from "./types";
 import { normalizeEvolutionChain } from "./utils";
-const ChainComponent = ({ chain, name }) => {
+
+type ChainComponentT = {
+  chain: Chain;
+  name: string;
+};
+
+const ChainComponent = ({ chain, name }: ChainComponentT) => {
   const finalChain = normalizeEvolutionChain(chain);
 
   return (
     <div>
-      Evolution Chain
-      <div>
-        {finalChain.map((chainItem) => {
-          return (
-            <div className={styles.evolutionChain}>
+      {finalChain.map((chainItem: ChainItemT) => {
+        const currentName = chainItem.current.name;
+        const nextName = chainItem.next.name;
+
+        return (
+          <div className={styles.evolutionChain}>
+            {currentName === name ? (
               <div className={styles.pokemonName}>{chainItem.current.name}</div>
-              <div>{" - - > "}</div>
-              <div className={styles.pokemonName}>{chainItem.next.name}</div>
-            </div>
-          );
-        })}
-      </div>
+            ) : (
+              <Link key={currentName} href={`/pokemon/${currentName}`}>
+                {currentName}
+              </Link>
+            )}
+
+            <div>{" - - > "}</div>
+            {nextName === name ? (
+              <div className={styles.pokemonName}>{chainItem.current.name}</div>
+            ) : (
+              <Link key={nextName} href={`/pokemon/${nextName}`}>
+                {nextName}
+              </Link>
+            )}
+          </div>
+        );
+      })}
     </div>
   );
 };

@@ -1,7 +1,10 @@
 .evolutionChain {
   display: flex;
   .pokemonName {
-    margin: 0 8px;
+    text-transform: capitalize;
+  }
+  a {
+    color: blue;
     text-transform: capitalize;
   }
 }

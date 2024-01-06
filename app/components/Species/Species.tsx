@@ -1,8 +1,10 @@
+import styles from "./Species.module.scss";
+
 const Species = ({ species }: any) => {
   return (
     <div>
-      <div>Species</div>
-      <div>{species?.name}</div>
+      <h2>Species</h2>
+      <div className={styles.pokemonName}>{species.name}</div>
     </div>
   );
 };

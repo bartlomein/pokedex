@@ -1,7 +1,16 @@
-.name {
-  font-size: 40px;
-  font-weight: bold;
-  text-transform: capitalize;
+.header {
+  h1 {
+    font-size: 40px;
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+
+  display: flex;
+  justify-content: space-between;
+}
+.subheader {
+  display: flex;
+  justify-content: space-around;
 }
 
 .details {

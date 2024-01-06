@@ -5,12 +5,16 @@
     padding: 0;
     position: absolute;
     list-style-type: none;
+    border: 1px solid gray;
+    background-color: white;
+    box-shadow: 10px 10px 10px gray;
 
     .listItem {
       font-size: 16px;
       margin: 8px 0px;
       text-transform: capitalize;
       font-weight: bold;
+      padding: 8px 16px;
     }
   }
 }

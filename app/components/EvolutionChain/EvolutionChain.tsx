@@ -19,7 +19,10 @@ const EvolutionChain = ({ id, name }: EvolutionChainT) => {
   const chain = evoChainResponse?.data?.chain;
 
   return (
-    <div>{chain ? <ChainComponent chain={chain} name={name} /> : null}</div>
+    <div>
+      <h2> Evolution Chain</h2>
+      {chain ? <ChainComponent chain={chain} name={name} /> : null}
+    </div>
   );
 };
 

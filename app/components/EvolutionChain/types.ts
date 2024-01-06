@@ -10,7 +10,7 @@ export interface EvoRoot {
 
 export interface Chain {
   evolution_details: any[];
-  evolves_to: EvolvesTo[];
+  evolves_to: EvolvesTo[] | [];
   is_baby: boolean;
   species: Species3;
 }
@@ -229,4 +229,12 @@ export interface Variety {
 export interface Pokemon {
   name: string;
   url: string;
+}
+
+export interface ChainItemT {
+  current: Name;
+  next: Name;
+}
+export interface Name {
+  name: string;
 }
