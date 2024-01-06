@@ -1,7 +1,11 @@
-/* Components */
+import styles from "./styles.module.scss";
 
 export default function IndexPage() {
-  return <div>Please select a pokemon in the search bar</div>;
+  return (
+    <div className={styles.homepage}>
+      <h1>Please select a pokemon in the search bar</h1>
+    </div>
+  );
 }
 
 export const metadata = {

@@ -13,7 +13,6 @@ export default function RootLayout(props: React.PropsWithChildren) {
         <body>
           <section className={styles.container}>
             <Nav />
-
             <main className={styles.main}>{props.children}</main>
           </section>
         </body>
