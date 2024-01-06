@@ -3,6 +3,7 @@
 import Abilities from "@/app/components/Abilities/Abilities";
 import { NextPage } from "next";
 
+import EvolutionChain from "@/app/components/EvolutionChain/EvolutionChain";
 import Moves from "@/app/components/Moves/Moves";
 import Species from "@/app/components/Species/Species";
 import Sprites from "@/app/components/Sprites/Sprites";
@@ -38,6 +39,7 @@ const Name: NextPage<PageProps> = ({ params }) => {
 
             <Types types={data.types} />
             <Sprites sprites={data.sprites} />
+            <EvolutionChain id={data.id} />
           </div>
         </>
       ) : (
