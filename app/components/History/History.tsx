@@ -6,9 +6,9 @@ const History = () => {
   return (
     <div>
       <h4>Search History</h4>
-      {history.map((item) => {
+      {history.map((item, index) => {
         return (
-          <li className={styles.historyItem}>
+          <li className={styles.historyItem} key={`${item}_${index}`}>
             <Link key={item} href={`/pokemon/${item}`}>
               {item}
             </Link>

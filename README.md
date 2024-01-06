@@ -40,7 +40,7 @@ The search history component shows on each pokemon's page. It will store each cl
 
 Improvents would be to store the history and restore it so it does not get deleted with a restart of the application.
 
-#### Display components
+### Display components
 
 Each Pokemon's page will have several display components to display various details about the Pokemon.
 
@@ -71,3 +71,5 @@ Each Pokemon's page will have several display components to display various deta
 - [ ] Unit Tests
 
 - [ ] Mobile responsiveness
+
+- [ ] Favicon

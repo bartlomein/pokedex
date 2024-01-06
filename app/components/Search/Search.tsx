@@ -5,25 +5,30 @@ import styles from "./Search.module.scss";
 
 import { historySlice, useDispatch } from "@/lib/redux";
 
+type PokeListItem = {
+  name: string;
+  url: string;
+};
+
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [filteredData, setFilteredData] = useState([]);
 
   const dispatch = useDispatch();
 
-  const handleSearchChange = (event) => {
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
   };
 
   const filterData = () => {
-    const filtered = data?.results.filter((item) => {
+    const filtered = data?.results.filter((item: PokeListItem) => {
       const searchTermLower = searchTerm.toLowerCase();
       return item.name.toLowerCase().includes(searchTermLower);
     });
     setFilteredData(filtered);
   };
 
-  const { data, error } = useFetch(
+  const { data, loading } = useFetch(
     "https://pokeapi.co/api/v2/pokemon-species/?offset=0&limit=2000"
   );
 
@@ -35,6 +40,10 @@ const Search = () => {
     filterData();
   }, [searchTerm]);
 
+  if (loading) {
+    return <div>Fetching all Pokemon</div>;
+  }
+
   return (
     <div className={styles.search}>
       <input
@@ -43,10 +52,10 @@ const Search = () => {
         onChange={handleSearchChange}
         placeholder="Search..."
       />
-      {/* TODO make this a dropdown with pokeitems */}
+
       <ul className={styles.dropdownList}>
         {searchTerm &&
-          filteredData?.map((item, index) => {
+          filteredData?.map((item: PokeListItem, index) => {
             if (index < 5) {
               return (
                 <li className={styles.listItem}>

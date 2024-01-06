@@ -9,27 +9,30 @@ type ChainComponentT = {
 };
 
 const ChainComponent = ({ chain, name }: ChainComponentT) => {
-  const finalChain = normalizeEvolutionChain(chain);
+  const normalizedChain = normalizeEvolutionChain(chain);
 
   return (
     <div>
-      {finalChain.map((chainItem: ChainItemT) => {
+      {normalizedChain.map((chainItem: ChainItemT, index) => {
         const currentName = chainItem.current.name;
         const nextName = chainItem.next.name;
 
         return (
-          <div className={styles.evolutionChain}>
+          <div
+            className={styles.evolutionChain}
+            key={`${currentName}_${nextName}_${index}`}
+          >
             {currentName === name ? (
-              <div className={styles.pokemonName}>{chainItem.current.name}</div>
+              <div className={styles.pokemonName}>{name}</div>
             ) : (
               <Link key={currentName} href={`/pokemon/${currentName}`}>
                 {currentName}
               </Link>
             )}
 
-            <div>{" - - > "}</div>
+            <div>{" --> "}</div>
             {nextName === name ? (
-              <div className={styles.pokemonName}>{chainItem.current.name}</div>
+              <div className={styles.pokemonName}>{name}</div>
             ) : (
               <Link key={nextName} href={`/pokemon/${nextName}`}>
                 {nextName}

@@ -6,8 +6,12 @@ const Moves = ({ moves }: { moves: Move[] }) => {
     <div>
       <h2>Moves</h2>
       <ul>
-        {moves?.map((move: Move) => {
-          return <li className={styles.move}>{move.move.name}</li>;
+        {moves?.map((move: Move, index: number) => {
+          return (
+            <li key={`${move.move.name}_${index}`} className={styles.move}>
+              {move.move.name}
+            </li>
+          );
         })}
       </ul>
     </div>

@@ -5,8 +5,9 @@ const Types = ({ types }: { types: Type[] }) => {
     <div>
       <h2>Types</h2>
       <ul>
-        {types?.map((elem: Type) => {
-          return <li>{elem.type.name}</li>;
+        {types?.map((type: Type, index) => {
+          const name = type.type.name;
+          return <li key={`${name}_${index}`}>{name}</li>;
         })}
       </ul>
     </div>

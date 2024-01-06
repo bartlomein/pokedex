@@ -6,8 +6,13 @@ const Abilities = ({ abilities }: { abilities: Ability[] }) => {
     <div>
       <h2>Abilities</h2>
       <ul>
-        {abilities.map((ability: Ability) => {
-          return <li className={styles.ability}>{ability.ability.name}</li>;
+        {abilities.map((ability: Ability, index) => {
+          const name = ability.ability.name;
+          return (
+            <li key={`${name}_${index}`} className={styles.ability}>
+              {name}
+            </li>
+          );
         })}
       </ul>
     </div>

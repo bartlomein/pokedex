@@ -12,7 +12,7 @@ const EvolutionChain = ({ id, name }: EvolutionChainT) => {
     `https://pokeapi.co/api/v2/pokemon-species/${id}`
   );
 
-  const evoChain = data?.evolution_chain?.url;
+  const evoChain = data?.evolution_chain?.url || "";
 
   const evoChainResponse: EvoChainResT = useFetch(evoChain);
 
@@ -21,7 +21,11 @@ const EvolutionChain = ({ id, name }: EvolutionChainT) => {
   return (
     <div>
       <h2> Evolution Chain</h2>
-      {chain ? <ChainComponent chain={chain} name={name} /> : null}
+      {chain ? (
+        <ChainComponent chain={chain} name={name} />
+      ) : (
+        <div>Loading Evolution chain</div>
+      )}
     </div>
   );
 };
