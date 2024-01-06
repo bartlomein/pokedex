@@ -1,5 +1,6 @@
 export interface PtypeRes {
   data?: Ptype | undefined;
+  loading: boolean;
 }
 
 export interface Ptype {

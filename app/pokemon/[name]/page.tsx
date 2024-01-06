@@ -22,27 +22,31 @@ type PageProps = {
 };
 
 const Name: NextPage<PageProps> = ({ params }) => {
-  const { data }: PtypeRes = useFetch(
+  const { data, loading }: PtypeRes = useFetch(
     `https://pokeapi.co/api/v2/pokemon/${params.name}`
   );
 
+  if (loading) {
+    return <div>Loading Pokemon</div>;
+  }
+
   return (
     <>
-      {data ? (
+      {data && !loading ? (
         <>
           <div className={styles.header}>
             <h1>{params.name}</h1>
             <History />
           </div>
           <div className={styles.subheader}>
-            <Species species={data.species} />
+            <Species species={data.species!} />
             <Types types={data.types} />
           </div>
           <div className={styles.details}>
             <Abilities abilities={data.abilities} />
             <Moves moves={data.moves} />
 
-            <Sprites sprites={data.sprites} />
+            <Sprites sprites={data.sprites!} />
             <EvolutionChain id={data.id} name={params.name} />
           </div>
         </>

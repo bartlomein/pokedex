@@ -1,4 +1,6 @@
-const Sprites = ({ sprites }: any) => {
+import { Sprites } from "@/app/pokemon/[name]/types";
+
+const Sprites = ({ sprites }: { sprites: Sprites }) => {
   function filterHelper(item: any) {
     // TODO extra stuff if there was more time
     if (item[0] !== "versions" && item[0] !== "other") {
