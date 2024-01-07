@@ -68,6 +68,8 @@ Improvements
 
 - Evolution Chain improvemets to make it more readable when a pokemon has more than one evolution from a single current level
 
+- Test components and hooks. Started to work on implementing tests but running into some babel ts-jest issues to get it running correctly. However here are some of the things that I would test: useFetch hook: make sure it returns errors states, loading and data correctly. Evolution chain: Make sure the utils function is correct, test that if the user is on a certain Pokemon's page, the link is not clickable. Page component rendering loader, 404 page correctly if loading and no data respectfully.
+
 ## Todos
 
 - [ ] 404 Page
