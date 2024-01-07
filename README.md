@@ -66,7 +66,7 @@ Improvements
 
 - Normalize Sprite Names
 
-- Evolution Chain improvemets to make it more natural when a pokemon has more than one evolution from a single current level
+- Evolution Chain improvemets to make it more readable when a pokemon has more than one evolution from a single current level
 
 ## Todos
 
@@ -85,3 +85,5 @@ Improvements
 - [ ] Mobile responsiveness
 
 - [ ] Favicon
+
+- [ ] Look on Dribble for design inspiration

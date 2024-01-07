@@ -10,14 +10,16 @@
 }
 
 .nav {
-  grid-area: nav;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 8px;
   padding: 8px;
   font-size: calc(10px + 2vmin);
   border-bottom: 1px solid red;
+}
+.nav h1 {
+  margin: 0;
 }
 
 .link:hover {
