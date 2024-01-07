@@ -1,12 +1,12 @@
 import { Sprites } from "@/app/pokemon/[name]/types";
 
 const Sprites = ({ sprites }: { sprites: Sprites }) => {
-  function filterHelper(item: any) {
+  const filterHelper = (item: any) => {
     // TODO handling of all the versions if there was more time
     if (item[0] !== "versions" && item[0] !== "other") {
       return item?.[1];
     }
-  }
+  };
 
   const filteredSprites = Object.entries(sprites).filter(filterHelper) || [];
 

@@ -10,9 +10,11 @@ type PokeListItem = {
   url: string;
 };
 
+const SEARCH_LIMIT = 5;
+
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [filteredData, setFilteredData] = useState([]);
+  const [filteredData, setFilteredData] = useState<PokeListItem[]>([]);
 
   const dispatch = useDispatch();
 
@@ -32,6 +34,11 @@ const Search = () => {
     "https://pokeapi.co/api/v2/pokemon-species/?offset=0&limit=2000"
   );
 
+  const handleClick = (route: string) => {
+    setSearchTerm("");
+    dispatch(historySlice.actions.add(route));
+  };
+
   useEffect(() => {
     setFilteredData(data?.results);
   }, [data]);
@@ -50,21 +57,19 @@ const Search = () => {
         type="text"
         value={searchTerm}
         onChange={handleSearchChange}
-        placeholder="Search..."
+        placeholder="Search for Pokemon"
       />
 
       <ul className={styles.dropdownList}>
         {searchTerm &&
           filteredData?.map((item: PokeListItem, index) => {
-            if (index < 5) {
+            if (index < SEARCH_LIMIT) {
               return (
                 <li className={styles.listItem}>
                   <Link
                     key={item.name}
                     href={`/pokemon/${item.name}`}
-                    onClick={() =>
-                      dispatch(historySlice.actions.add(item.name))
-                    }
+                    onClick={() => handleClick(item.name)}
                   >
                     {item.name}
                   </Link>

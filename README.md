@@ -38,7 +38,11 @@ Improvements on this would be to cache the initial pokemon list in localstorage 
 
 The search history component shows on each pokemon's page. It will store each click on a selection inside the search component inside of a Redux store and display it to the user. Each item in the history can be clicked to go back to that page but it will not affect the history. Only searching and clicking on an item in the search will affect it.
 
-Improvents would be to store the history and restore it so it does not get deleted with a restart of the application.
+Improvents
+
+- Store the history and restore it so it does not get deleted with a restart of the application.
+
+- Keyboard control with up and down arrows to allow for screen readers and ease of control
 
 ### Display components
 
@@ -55,6 +59,14 @@ Each Pokemon's page will have several display components to display various deta
 - Sprites
 
 - Evolution Chain
+
+Improvements
+
+- View all button on Moves as Pokemon have lots of moves so a user can click "View All" to expand or collapse the moves panel
+
+- Normalize Sprite Names
+
+- Evolution Chain improvemets to make it more natural when a pokemon has more than one evolution from a single current level
 
 ## Todos
 
